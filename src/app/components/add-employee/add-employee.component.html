@@ -1,0 +1,34 @@
+<app-header title="Add Employee"></app-header>
+<p style="color:red">{{ error }}</p>
+<em style="color:green;">{{success}}</em>
+<form class="flex justify-around h-44">
+  <div class="flex flex-col h-full justify-between mr-3">
+    <label for="first-name">First Name</label>
+    <label for="last-name">Last Name</label>
+    <label for="email">Email</label>
+    <label for="salary">Salary</label>
+    <label for="gender">Gender</label>
+  </div>
+
+  <div class="flex flex-col h-full justify-around">
+    <input
+      type="text"
+      id="first-name"
+      name="first-name"
+      [(ngModel)]="firstName"
+      class="outline outline-1 focus:ring focus:outline-none"
+    />
+    <input type="text" id="last-name" name="last-name" [(ngModel)]="lastName" class="outline outline-1 focus:ring focus:outline-none" />
+    <input type="email" id="email" name="email" [(ngModel)]="email" class="outline outline-1 focus:ring focus:outline-none" />
+    <input type="text" id="salary" name="salary" [(ngModel)]="salary" class="outline outline-1 focus:ring focus:outline-none" />
+    <select name="gender" id="gender" [(ngModel)]="gender" class="outline outline-1 focus:ring focus:outline-none">
+      <option value="Male" selected>Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+</form>
+<app-button
+  color="red"
+  text="Add Employee"
+  (click)="addEmployee()"
+></app-button>

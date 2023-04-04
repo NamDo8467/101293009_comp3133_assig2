@@ -1,0 +1,22 @@
+<div class="task">
+  <h3 class="text-lg font-bold">
+    {{ employee.first_name }} {{ employee.last_name }}
+
+    <a href="/editEmployee/{{ employee.id }}">
+      <fa-icon [ngStyle]="{ color: 'green' }" [icon]="faFilePen"></fa-icon>
+    </a>
+    <a href="/employee/{{ employee.id }}">
+      <fa-icon
+        [ngStyle]="{ color: 'blue' }"
+        [icon]="faArrowUpRightFromSquare"
+      ></fa-icon>
+    </a>
+    <fa-icon
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+      (click)="deleteEmployee(employee.id)"
+    ></fa-icon>
+  </h3>
+  <p>{{ employee.email }}</p>
+  <p>${{ employee.salary }}</p>
+</div>

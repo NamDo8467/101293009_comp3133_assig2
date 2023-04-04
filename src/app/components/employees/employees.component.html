@@ -1,0 +1,6 @@
+<app-header title="Employee List"></app-header>
+<app-employee-item
+  *ngFor="let employee of employees"
+  [employee]="employee"
+  (deletingEmployee)="updateUIByDeleting(employee.id)"
+></app-employee-item>

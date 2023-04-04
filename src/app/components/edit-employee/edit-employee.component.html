@@ -1,0 +1,75 @@
+<app-header title="Edit Employee"></app-header>
+<p *ngIf="error" style="color: red">{{ error }}</p>
+<em style="color: green">{{ success }}</em>
+<p *ngIf="loading == true; else elseBlock">Loading</p>
+<ng-template #elseBlock>
+  <form class="flex justify-around h-44">
+    <div class="flex flex-col h-full justify-between mr-3">
+      <label for="first-name">First Name</label>
+      <label for="last-name">Last Name</label>
+      <label for="email">Email</label>
+      <label for="salary">Salary</label>
+      <label for="gender">Gender</label>
+    </div>
+
+    <div class="flex flex-col h-full justify-between">
+      <input
+        type="text"
+        id="first-name"
+        name="first-name"
+        [(ngModel)]="firstName"
+        class="outline outline-1 focus:ring focus:outline-none"
+      />
+      <input
+        type="text"
+        id="last-name"
+        name="last-name"
+        [(ngModel)]="lastName"
+        class="outline outline-1 focus:ring focus:outline-none"
+      />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        class="outline outline-1 focus:ring focus:outline-none"
+      />
+      <input
+        type="text"
+        id="salary"
+        name="salary"
+        [(ngModel)]="salary"
+        class="outline outline-1 focus:ring focus:outline-none"
+      />
+      <select
+        name="gender"
+        id="gender"
+        [(ngModel)]="gender"
+        class="outline outline-1 focus:ring focus:outline-none"
+      >
+        <option
+          value="Male"
+          *ngIf="gender == 'Male'; else otherMaleBlock"
+          selected
+        >
+          Male
+        </option>
+        <ng-template #otherMaleBlock>
+          <option value="Male" selected>Male</option>
+        </ng-template>
+
+        <option
+          value="Female"
+          *ngIf="gender == 'Female'; else otherFemaleBlock"
+          selected
+        >
+          Female
+        </option>
+        <ng-template #otherFemaleBlock>
+          <option value="Female" selected>Female</option>
+        </ng-template>
+      </select>
+    </div>
+  </form>
+</ng-template>
+<app-button color="red" text="Edit" (click)="editEmployee()"></app-button>

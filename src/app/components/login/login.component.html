@@ -1,0 +1,35 @@
+<div
+  class="login-container flex h-5/6 w-3/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+>
+  <div class="image basis-3/5 self-center">
+    <img src="{{ loginImage }}" alt="login" />
+  </div>
+  <div
+    class="inputs flex flex-col items-center justify-around basis-2/5 h-4/5 self-center"
+  >
+    <h1 class="text-3xl font-bold">Login</h1>
+    <span class="error text-red-600 italic">{{ error }}</span>
+    <input
+      type="text"
+      class="border-b border-purple-400 w-3/4 focus:outline-none"
+      placeholder="Username"
+      [(ngModel)]="username"
+    />
+    <input
+      type="password"
+      class="border-b border-purple-400 w-3/4 focus:outline-none"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+    <button
+      class="p-2 border border-purple-300 bg-purple-300 rounded-md px-4"
+      (click)="login()"
+    >
+      Login
+    </button>
+    <p>
+      Don't have an account?
+      <a href="/signup" class="underline"> Sign up </a>
+    </p>
+  </div>
+</div>

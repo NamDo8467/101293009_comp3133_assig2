@@ -1,0 +1,24 @@
+<app-header title="Employee Detail"></app-header>
+<div>
+  <p *ngIf="error">{{ error }}</p>
+  <p *ngIf="loading; else elseBlock">Loading</p>
+  <ng-template #elseBlock>
+    <div class="flex">
+      <div class="flex flex-col h-full justify-between mr-3">
+        <label for="first-name">First Name</label>
+        <label for="last-name">Last Name</label>
+        <label for="email">Email</label>
+        <label for="salary">Salary</label>
+        <label for="gender">Gender</label>
+      </div>
+
+      <div class="flex flex-col h-full justify-between">
+        <span>{{ employee.first_name }}</span>
+        <span>{{ employee.last_name }}</span>
+        <span>{{ employee.email }}</span>
+        <span>{{ employee.gender }}</span>
+        <span>${{ employee.salary }}</span>
+      </div>
+    </div>
+  </ng-template>
+</div>
